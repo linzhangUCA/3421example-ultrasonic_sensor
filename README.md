@@ -15,16 +15,17 @@ Run [basic_ranging.py](basic_ranging.py) using MicroPython and Pico.
 > Check wiring!
 
 If distance sensor is required by other project, upload [distance_sensor.py](distance_sensor.py) to Pico.
-Then, import the `DistanceSensor` class when needed.
+Then, import the `DistanceSensor` class when needed. Refer to the [example](test_distance_sensor.py)
 ```python
 from distance_sensor import DistanceSensor
 from time import sleep_ms
 
 # SETUP
-sensor = DistanceSensor(trig_id=3, echo_id=2)
+sensor = DistanceSensor(trig_id=3, echo_id=2)  # check wiring!
 
 # LOOP
 while True:
     print(f"Distance: {sensor.distance} m")
     sleep_ms(100)  # read distance every 1/10 second
 ```
+
