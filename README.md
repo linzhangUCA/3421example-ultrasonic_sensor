@@ -18,5 +18,13 @@ If distance sensor is required by other project, upload [distance_sensor.py](dis
 Then, import the `DistanceSensor` class when needed.
 ```python
 from distance_sensor import DistanceSensor
-dsensor_instance = DistanceSensor(trig_id=3, echo_id=2)  # make sure pin ids match your wiring 
+from time import sleep_ms
+
+# SETUP
+sensor = DistanceSensor(trig_id=3, echo_id=2)
+
+# LOOP
+while True:
+    print(f"Distance: {sensor.distance} m")
+    sleep_ms(100)  # read distance every 1/10 second
 ```
