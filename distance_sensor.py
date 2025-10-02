@@ -1,4 +1,5 @@
 from machine import Pin, PWM, reset
+from time import ticks_us
 
 class DistanceSensor:
     def __init__(self, trig_id, echo_id):
@@ -24,7 +25,7 @@ class DistanceSensor:
                 self._distance = None
 
 if __name__ == "__main__":
-    from time import sleep_ms, ticks_us
+    from time import sleep_ms
 
     sensor = DistanceSensor(trig_id=3, echo_id=2)
 
