@@ -6,11 +6,8 @@ class DistanceSensor:
         self.trig_pin = PWM(Pin(trig_id), freq=12, duty_ns=10_000)
         self.echo_pin = Pin(echo_id, Pin.IN, Pin.PULL_DOWN)
         self.echo_pin.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=self._echo_handler)
-        self._distance = None
+        self.distance = None
         self._start_time = None
-
-    def distance(self):
-        return self._distance
 
     def _echo_handler(self, pin):
         if pin.value():
@@ -18,11 +15,11 @@ class DistanceSensor:
         else:
             dt = ticks_us() - self._start_time
             if dt < 100:
-                self._distance = 0.0
+                self.distance = 0.0
             elif 100 <= dt < 38000:
-                self._distance = dt / 58 / 100
+                self.distance = dt / 58 / 100
             else:
-                self._distance = None
+                self.distance = None
 
 if __name__ == "__main__":
     from time import sleep_ms
@@ -31,7 +28,7 @@ if __name__ == "__main__":
 
     try:
         while True:
-            print(f"Distance: {sensor.distance()} m")
+            print(f"Distance: {sensor.distance} m")
             sleep_ms(200)
     except KeyboardInterrupt:
         reset()
