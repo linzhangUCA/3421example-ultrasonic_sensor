@@ -2,17 +2,15 @@
 [HC-SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) usage examples 
 
 ## 1 Wiring
-### 1.1 Powered by Pico's Micro-USB Connection
+### 1.1 Powered by Pico's VBUS
 ![wiring-usb](images/hcsr04_wiring-usb.png)
 
-### 1.2 Powered by External 5V Source (e.g. Buck Converter)
+### 1.2 Powered by External 5V Source (e.g. Yahboom Power Expansion Board)
 ![wiring-peb](images/hcsr04_wiring-peb.png)
 
 ## 2 Usage
 Just want to have some fun with the sensor? 
 Run [basic_ranging.py](basic_ranging.py) using MicroPython and Pico.
-> [!NOTE]
-> Check wiring!
 
 If distance sensor is required by other project, upload [distance_sensor.py](distance_sensor.py) to Pico.
 Then, import the `DistanceSensor` class when needed. Refer to the [example](test_distance_sensor.py)
